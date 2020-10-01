@@ -1,0 +1,32 @@
+<resources>
+    <!-- Base application theme. -->
+    <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    <!--        <item name="colorPrimary">#FF5722</item>-->
+    <!--        <item name="colorPrimaryDark">#E64A19</item>-->
+    <!--        <item name="colorAccent">@color/colorAccent</item>-->
+    <!--        <item name="colorControlHighlight">@android:color/white</item>-->
+    <!--    </style>-->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. #4CAF50 #388E3C-->
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#A5D6A7</item>
+    </style>
+
+    <style name="AppTheme2" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#121212</item>
+        <item name="colorPrimaryDark">#121212</item>
+        <item name="android:textColor">#BDBDBD</item>
+        <item name="android:itemBackground">#424242</item>
+        <item name="colorAccent">#A5D6A7</item>
+    </style>
+    <style name="AppTheme3" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">#121212</item>
+    <item name="colorPrimaryDark">#121212</item>
+    <item name="android:textColor">#BDBDBD</item>
+</style>
+
+</resources>

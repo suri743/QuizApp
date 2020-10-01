@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlinquiz">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="20dp"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/k_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+            app:subtitleTextColor="#FFCC80"
+            app:titleTextColor="#FFCC80" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121212"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Welcome to Kotlin"
+                    android:textColor="@android:color/white"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:alpha=".6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Kotlin is all about writing Safer and Better Apps."
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:alpha=".6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Quiz has 4 Questions - 1 Mark each"
+                    android:textColor="#FFE082"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lkResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvkCongrats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Congrats!"
+                    android:textAlignment="center"
+                    android:textColor="#FFE082"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tvkMarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="You Got: 4/4"
+                    android:textAlignment="center"
+                    android:textColor="#A5D6A7"
+                    android:textSize="56sp" />
+
+                <TextView
+                    android:id="@+id/tvkGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".60"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Grade: A+"
+                    android:textAlignment="center"
+                    android:textColor="#FFA48E"
+                    android:textSize="24sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/kBMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9FA8DA"
+                    android:fontFamily="sans-serif-black"
+                    android:onClick="kMail"
+                    android:text="Mail Your Marks"
+                    android:textColor="@android:color/black"
+                    app:cornerRadius="20dp"
+                    app:elevation="2dp"
+                    app:icon="@drawable/baseline_email_black_18dp"
+                    app:iconGravity="textEnd"
+                    app:iconSize="20dp"
+                    app:iconTint="@android:color/black"
+                    tools:ignore="OnClick" />
+                <TextView
+                    android:id="@+id/tvkAS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="24dp"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Answers:"
+                    android:textColor="#A5D6A7"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 1."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Kotlin is developed by?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/kq1a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 3 \n\n JetBrains"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:id="@+id/rgq1"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q1op1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" Google"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q1op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Android .Inc"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q1op3a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" JetBrains"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q1op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Oracle"
+                        android:textColor="@color/radiobuttoncolor" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 2."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" All classes in Kotlin classes are by default?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/kq2a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 1\n\n Final"
+                    android:visibility="gone"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:id="@+id/rgq2"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q2op1a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" Final"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Public"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Private"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Protected"
+                        android:textColor="@color/radiobuttoncolor" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 3."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	How to write multi lined comment in Kotlin?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/kq3a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/answer_option_2_n_multi_line_comment"
+                    android:textColor="#A5D6A7"
+                    android:visibility="gone"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:id="@+id/rgq3"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q3op1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" //"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op2a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" / multi line comment /"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" /* */"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 4."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	Which file extension is used to save Kotlin Files?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/kq4a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 2 &amp; Option 3 \n\n .kot and .kt "
+                    android:textColor="#A5D6A7"
+                    android:visibility="gone"
+                    android:textSize="18sp" />
+                <LinearLayout
+                    android:id="@+id/q4cg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <CheckBox
+                    android:id="@+id/q4op1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingLeft="8dp"
+                    android:text=".java"
+                    android:textColor="@color/radiobuttoncolor"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/q4op2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingLeft="8dp"
+                    android:text=".kot"
+                    android:textColor="@color/radiobuttoncolor"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/q4op3a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingLeft="8dp"
+                    android:text=".kt"
+                    android:textColor="@color/radiobuttoncolor"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/q4op4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingLeft="8dp"
+                    android:text=".kts"
+                    android:textColor="@color/radiobuttoncolor"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/q4op5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingLeft="8dp"
+                    android:text=".android"
+                    android:textColor="@color/radiobuttoncolor"
+                    android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:gravity="right">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/kBPre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#A5D6A7"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="kPre"
+                        android:text="Prev"
+                        android:textColor="@android:color/black"
+                        android:visibility="invisible"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/prev"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconTint="@android:color/black" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/kBNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#A5D6A7"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="kNext"
+                        android:text="Next"
+                        android:textColor="@android:color/black"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/next"
+                        app:iconGravity="textEnd"
+                        app:iconSize="20dp"
+                        app:iconTint="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/kBsubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#9FA8DA"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="kSubmit"
+                        android:text="Submit"
+                        android:textColor="@android:color/black"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/submit"
+                        app:iconGravity="textStart"
+                        app:iconSize="15dp"
+                        app:iconTint="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--       -->
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

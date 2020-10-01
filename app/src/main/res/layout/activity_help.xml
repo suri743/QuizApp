@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".help"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121212"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WRITE TO Us"
+                android:textAllCaps="true"
+                android:layout_marginStart="18dp"
+                android:textSize="22sp"
+                android:paddingTop="16dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:alpha=".87"
+                android:fontFamily="sans-serif-light"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We'd love to hear from you, please drop us your query."
+                android:layout_marginStart="18dp"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:textColor="#FFFFFF"
+                android:alpha=".6"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lHName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:textColorHint="#FFFFFF"
+                android:alpha=".87"
+                app:boxBackgroundColor="#272727"
+                app:boxStrokeColor="#A5D6A7"
+                app:hintTextColor="#FFE082"
+                android:enabled="true"
+                android:elevation="2dp"
+                app:startIconDrawable="@drawable/administrator_24"
+                app:startIconTint="#FFE082"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/hName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColor="#FFE082"
+                    android:textSize="18sp"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lHEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:textColorHint="#FFFFFF"
+                app:boxBackgroundColor="#272727"
+                app:boxStrokeColor="#A5D6A7"
+                app:hintTextColor="#FFE082"
+                android:enabled="true"
+                android:alpha=".87"
+                app:startIconDrawable="@drawable/mail_24"
+                app:startIconTint="#FFE082"
+                android:elevation="2dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/hEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFE082"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Message"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:textColorHint="#FFFFFF"
+                app:boxBackgroundColor="#272727"
+                android:alpha=".87"
+                app:boxStrokeColor="#A5D6A7"
+                app:hintTextColor="#FFE082"
+                android:enabled="true"
+                app:hintTextAppearance="?attr/textAppearanceCaption"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/hMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFE082"
+                    android:inputType="textMultiLine"
+                    android:lines="7"
+                    android:elevation="2dp"
+                    android:gravity="top|start"
+                    android:scrollbars="vertical"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hBSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Send"
+                app:cornerRadius="20dp"
+                android:backgroundTint="#FFE082"
+                android:textColor="@android:color/black"
+                app:icon="@drawable/baseline_email_black_18dp"
+                android:fontFamily="sans-serif-black"
+                android:onClick="hSendMail"
+                app:elevation="4dp"
+                app:iconGravity="textStart"
+                app:iconTint="@android:color/black"
+                app:iconSize="15dp"
+                />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="20dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/help_toolbar"
+            android:layout_width="match_parent"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+            android:layout_height="?attr/actionBarSize"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

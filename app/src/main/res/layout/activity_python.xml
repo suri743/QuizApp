@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".python">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="20dp"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/python_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+            app:subtitleTextColor="#FFCC80"
+            app:titleTextColor="#FFCC80" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121212"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Welcome to Python"
+                    android:textColor="@android:color/white"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:alpha=".6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Python is the 'Most powerful language you can still read'."
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:alpha=".6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Quiz has 4 Questions - 1 Mark each"
+                    android:textColor="#FFE082"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lpResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvpCongrats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Congrats!"
+                    android:textAlignment="center"
+                    android:textColor="#FFE082"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tvpMarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="You Got: 4/4"
+                    android:textAlignment="center"
+                    android:textColor="#A5D6A7"
+                    android:textSize="56sp" />
+
+                <TextView
+                    android:id="@+id/tvpGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".60"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Grade: A+"
+                    android:textAlignment="center"
+                    android:textColor="#FFA48E"
+                    android:textSize="24sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pBMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9FA8DA"
+                    android:fontFamily="sans-serif-black"
+                    android:onClick="kMail"
+                    android:text="Mail Your Marks"
+                    android:textColor="@android:color/black"
+                    app:cornerRadius="20dp"
+                    app:elevation="4dp"
+                    app:icon="@drawable/baseline_email_black_18dp"
+                    app:iconGravity="textEnd"
+                    app:iconSize="20dp"
+                    app:iconTint="@android:color/black"
+                    tools:ignore="OnClick" />
+                <TextView
+                    android:id="@+id/tvpAS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="24dp"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Answers:"
+                    android:textColor="#A5D6A7"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 1."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" A string is immutable in Python?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/pq1a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 1 \n\n True"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:id="@+id/prgq1"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q1op1a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" True"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q1op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" False"
+                        android:textColor="@color/radiobuttoncolor" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 2."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Which operator has higher precedence in the following list?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/pq2a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 3 \n\n **, Exponent"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp" />
+                <RadioGroup
+                    android:id="@+id/prgq2"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q2op1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" % Modulus"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" &amp; BitWise AND"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op3a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" **, Exponent"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" > Comparison"
+                        android:textColor="@color/radiobuttoncolor" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 3."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	What is the output of the following code?\n str = 'pynative' \n print str[1:3])"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/pq3a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 2 \n\n yn"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp" />
+                <RadioGroup
+                    android:id="@+id/prgq3"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q3op1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" py"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op2a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" yn"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" ny"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" pyn"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 4."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	What is the output of the following code? \n valueTwo = 5 ** 3 \n print(valueTwo)"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/pq4a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: 125"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lpHName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:alpha=".87"
+                    android:elevation="2dp"
+                    android:enabled="true"
+                    android:hint="Your Answer Here"
+                    android:textColorHint="#FFFFFF"
+                    app:boxBackgroundColor="#272727"
+                    app:boxStrokeColor="#A5D6A7"
+                    app:hintTextColor="#FFE082"
+                    app:startIconTint="#FFE082">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/q4a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:textColor="#FFE082"
+                        android:textSize="18sp"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:gravity="right">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pBPre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#A5D6A7"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="pPre"
+                        android:text="Prev"
+                        android:textColor="@android:color/black"
+                        android:visibility="invisible"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/prev"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconTint="@android:color/black" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pBNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#A5D6A7"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="pNext"
+                        android:text="Next"
+                        android:textColor="@android:color/black"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/next"
+                        app:iconGravity="textEnd"
+                        app:iconSize="20dp"
+                        app:iconTint="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pBsubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#9FA8DA"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="pSubmit"
+                        android:text="Submit"
+                        android:textColor="@android:color/black"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/submit"
+                        app:iconGravity="textStart"
+                        app:iconSize="15dp"
+                        app:iconTint="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--       -->
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

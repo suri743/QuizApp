@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".javaQuiz">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="20dp"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/java_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+            app:subtitleTextColor="#FFCC80"
+            app:titleTextColor="#FFCC80" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121212"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Welcome to Java"
+                    android:textColor="@android:color/white"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:alpha=".6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Three billion devices currently run on Java."
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:alpha=".6"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Quiz has 7 Questions - 1 Mark each"
+                    android:textColor="#FFE082"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ljResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvjCongrats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Congrats!"
+                    android:textAlignment="center"
+                    android:textColor="#FFE082"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tvjMarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="You Got: 7/7"
+                    android:textAlignment="center"
+                    android:textColor="#A5D6A7"
+                    android:textSize="56sp" />
+
+                <TextView
+                    android:id="@+id/tvjGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".60"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Grade: A+"
+                    android:textAlignment="center"
+                    android:textColor="#FFA48E"
+                    android:textSize="24sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/jBMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9FA8DA"
+                    android:fontFamily="sans-serif-black"
+                    android:onClick="jMail"
+                    android:text="Mail Your Marks"
+                    android:textColor="@android:color/black"
+                    app:cornerRadius="20dp"
+                    app:elevation="2dp"
+                    app:icon="@drawable/baseline_email_black_18dp"
+                    app:iconGravity="textEnd"
+                    app:iconSize="20dp"
+                    app:iconTint="@android:color/black"
+                    tools:ignore="OnClick" />
+
+                <TextView
+                    android:id="@+id/tvjAS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha=".87"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingTop="24dp"
+                    android:text="Answers:"
+                    android:textColor="#A5D6A7"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 1."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Can we have multiple classes in same java file?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq1a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 1 \n\n True"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <RadioGroup
+                    android:id="@+id/jrgq1"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q1op1a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" True"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q1op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" False"
+                        android:textColor="@color/radiobuttoncolor" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 2."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" What is the default value of double variable?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq2a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 1 \n\n 0.0d"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <RadioGroup
+                    android:id="@+id/jrgq2"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q2op1a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text="  0.0d"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text="  0.0f"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" 0"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q2op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Not defined"
+                        android:textColor="@color/radiobuttoncolor" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 3."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	Which of the following is false about String?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq3a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 3 \n\n String is a primary data type"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <RadioGroup
+                    android:id="@+id/jrgq3"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q3op1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" String is Immutable"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" String can be created using new operator"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op3a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" String is a primary data type"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q3op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" None of the above"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 4."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	Method Overriding is an example of?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq4a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 2 \n\n Dynamic Binding"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <RadioGroup
+                    android:id="@+id/jrgq4"
+                    style="Widget.MaterialComponents.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="22sp"
+                    app:buttonTint="@android:color/white"
+                    app:useMaterialThemeColors="false">
+
+                    <RadioButton
+                        android:id="@+id/q4op1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:checked="false"
+                        android:text=" Static Binding"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q4op2a"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Dynamic Binding"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q4op3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" Both of the above"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                    <RadioButton
+                        android:id="@+id/q4op4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:checked="false"
+                        android:text=" None of the above"
+                        android:textColor="@color/radiobuttoncolor" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 5."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" 	Which of the following is true about interfaces in java?"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq5a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 1 , Option 3 and Option 4"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/jq5cg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/q5op1a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="@string/q5op1"
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/q5op2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="@string/q5op2"
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/q5op3a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="A class can implement multiple interfaces."
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/q5op4a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="@string/q5op4"
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 6."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/jq6"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq6a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: AC"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ljHName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:alpha=".87"
+                    android:elevation="2dp"
+                    android:enabled="true"
+                    android:hint="Your Answer Here"
+                    android:textColorHint="#FFFFFF"
+                    app:boxBackgroundColor="#272727"
+                    app:boxStrokeColor="#A5D6A7"
+                    app:hintTextColor="#FFE082"
+                    app:startIconTint="#FFE082">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/q6a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:maxLength="3"
+                        android:textColor="#FFE082"
+                        android:textSize="18sp"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lq7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Question 7."
+                    android:textColor="#FFE082"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/jq7"
+                    android:textColor="#FFA48E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/jq7a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text=" Answer: Option 3 \n All Of the Above"
+                    android:textColor="#A5D6A7"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/jq7cg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/jq7op1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="Only III"
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+
+
+                    <CheckBox
+                        android:id="@+id/q7op2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="Both I and II"
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/q7op3a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingLeft="8dp"
+                        android:text="All of the above"
+                        android:textColor="@color/radiobuttoncolor"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:gravity="right">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/jBPre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#A5D6A7"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="jPre"
+                        android:text="Prev"
+                        android:textColor="@android:color/black"
+                        android:visibility="invisible"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/prev"
+                        app:iconGravity="textStart"
+                        app:iconSize="20dp"
+                        app:iconTint="@android:color/black" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/jBNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#A5D6A7"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="jNext"
+                        android:text="Next"
+                        android:textColor="@android:color/black"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/next"
+                        app:iconGravity="textEnd"
+                        app:iconSize="20dp"
+                        app:iconTint="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/jBsubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#9FA8DA"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="jSubmit"
+                        android:text="Submit"
+                        android:textColor="@android:color/black"
+                        app:cornerRadius="20dp"
+                        app:elevation="4dp"
+                        app:icon="@drawable/submit"
+                        app:iconGravity="textStart"
+                        app:iconSize="15dp"
+                        app:iconTint="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--       -->
+
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

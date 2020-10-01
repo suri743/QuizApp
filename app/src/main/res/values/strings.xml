@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="appname">Quiz App</string>
+    <string name="jq7">Which of the following statement(s) with regard to an abstract class in JAVA is/are TRUE ? \n I. An abstract class is one that is not used to create objects. \n II. An abstract class is designed only to act as a base class to be inherited by other classes.\n III. An abstract class can contain constructors.</string>
+    <string name="jq6"><![CDATA[What displays from following statement: \n String word = \'ABCDE\';\n for(int i=0; i<4; i+=2)\n System.out.print(word[i]);]]></string>
+    <string name="answer_option_2_n_multi_line_comment"> Answer: Option 2 \n\n / multi line comment /</string>
+    <string name="q5op1">An interface can contain following type of members. \n public, static, final fields (i.e., constants), default and static methods with bodies</string>
+    <string name="q5op2">An instance of interface can be created.</string>
+    <string name="q5op4">Many classes can implement the same interface.</string>
+</resources>
